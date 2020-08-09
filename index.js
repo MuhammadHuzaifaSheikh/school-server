@@ -7,13 +7,6 @@ const app = express();
 app.use(cors());
 app.use(bodeParser.json({limit: '5000kb'}))
 
-app.use('',basicAuth( { authorizer: myAuthorizer } ))
-
-function myAuthorizer(username, password) {
-
-    return  basicAuth.safeCompare(username, process.env.username) &  basicAuth.safeCompare(password, process.env.password)
-
-}
 
 
 const students = require('./route/students')
