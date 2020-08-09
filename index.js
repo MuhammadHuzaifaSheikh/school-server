@@ -1,6 +1,5 @@
 const express = require('express');
 const bodeParser = require('body-parser');
- const basicAuth = require('express-basic-auth')
 
 var cors = require('cors');
 const app = express();
