@@ -64,6 +64,18 @@ api.post('/fillteryearclass', function (req, res) {
     })
 });
 
+
+api.post('/fillterdob', function (req, res) {
+    console.log(req.body);
+    schema.UserModel.where({$and:[
+            {dateOfBirth:{$gte:req.body.from}},
+            {dateOfBirth:{$lte:req.body.to}},
+        ]}).find().exec(function (error,data) {
+        // console.log(error,data)
+        res.send({data,error})
+    })
+});
+
 api.post('/fillteryearkeyword', function (req, res) {
     console.log(req.body);
     var regexQuery = {
