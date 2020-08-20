@@ -161,7 +161,13 @@ api.post('/updateData', function (req, res) {
         res.send({data,error})
     })
 });
-
+api.get('/delete', function (req, res) {
+    console.log(req.body);
+    schema.UserModel.where({name:'"World"'}).deleteMany().exec(function (error,data) {
+        // console.log(error,data)
+        res.send({data,error})
+    })
+});
 
 api.get('/get', function (req, res) {
     schema.UserModel.find().exec(function (error,data) {
